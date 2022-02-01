@@ -1,43 +1,19 @@
 <div class="container-fluid">
-  <h1>up and running...</h1>
-  <!-- interpolation  -->
-  <h2>{{textFromClass}}</h2>
-
-<!-- one way property binding -->
-  <h2>{{oneWayBinding}}</h2>
- <input type="text" [ngModel]="oneWayBinding">
-
- <!-- two way property binding -->
- <h2>{{twoWayBinding}}</h2>
- <input type="text" [(ngModel)]="twoWayBinding">
-
- <!-- event binding -->
- <br>
- <h5>event binding</h5>
- <button class="btn btn-secondary mt-1" (click)="clickMe()">Click Me</button>
-<!-- sending data to child component using @Input decorator in child -->
-<!-- receiving data from child throw Event Binding -->
- <app-user  [user]="userObject" (itemEmit)="addItemFromChild($event)"></app-user>
- <h2>{{fromChild}}</h2>
-
- <!-- adding and removing CSS classes using class directive -->
- <h2 [ngClass]="isInvalid? 'alert' : '' ">Attribute directive ngClass</h2>
+ 
 
 
- <!-- ngStyle directive -->
- <h2 [ngStyle]="currentStyles">ngStyle</h2>
 
- <!-- structural directive -->
- <div *ngIf="canSave; then ifBlock else elseBlock">if and else here</div>
-<!-- must use ng-template to choose between if and else block -->
- <ng-template #ifBlock>If Block</ng-template> 
-<ng-template #elseBlock>Else Block</ng-template>
+<!-- authentication using guards -->
 
-<br>
-<button class="btn btn-secondary" (click)="toggle()">Click To Toggle</button>
 
-<!-- routing using router module -->
+
+
+<div class="split left">
+  <div class="centered">
+    <!-- routing using router module -->
 <li>
+  <ul><a routerLink="/home">home</a></ul>
+  <ul><a routerLink="/tdf">template driven form</a></ul>
   <ul><a routerLink="/one">Component One</a></ul>
   <ul><a routerLink="/two">Component two</a></ul>
   <ul><a routerLink="/three">Component three</a></ul>
@@ -45,55 +21,11 @@
   <ul><a routerLink="/customer">Customer Module</a></ul> 
   
 </li>
-<router-outlet></router-outlet>
-
-<!-- authentication using guards -->
-
-
- <div class="form-group">
-   <form >
-     <div class="form-group">
-      <label >Username</label>
-      <input type="text" class="form-control"> 
-     </div>
-     <div class="form-group">
-      <label >Password</label>
-      <input type="password" class="form-control"> 
-     </div>
-     <div class="form-group">
-      <label >Confirm Password</label>
-      <input type="password" class="form-control"> 
-     </div>
-
-     <div class="form-group">
-      <label class="form-group-label">Interest</label><br>
-      <select name="interest" class="custom-select">
-        <option selected >I am interested in...</option>
-        
-          <option *ngFor="let item of interests" >{{item}}</option>
-       
-      </select> 
-     </div>
-
-    <div class="m-3"> 
-      <label >Time Preferences</label>
-      <div class="form-check">
-       <input type="radio" class="form-check-input" name="timePreferences" value="morning">
-       <label  class="form-check-label">Morning form 9AM to 2PM</label>
-    </div>
-    <div class="form-check">
-      <input type="radio" class="form-check-input" name="timePreferences" value="evening">
-      <label  class="form-check-label">Evening form 5PM to 9PM</label>
-   </div>
   </div>
-
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input">
-    <label  class="form-check-label">Send me updates and messages.</label>
-  </div>
-
-  <button class="btn btn-primary" type="submit">Register</button>
-
-   </form>
- </div>
 </div>
+
+<div class="split right">
+  <div class="centered">
+    <router-outlet></router-outlet>
+  </div>
+ </div>

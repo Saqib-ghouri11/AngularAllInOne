@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <h1>up and running...</h1>
+    <!-- interpolation  -->
+    <h2>{{textFromClass}}</h2>
+  
+  <!-- one way property binding -->
+    <h2>{{oneWayBinding}}</h2>
+   <input type="text" [ngModel]="oneWayBinding">
+  
+   <!-- two way property binding -->
+   <h2>{{twoWayBinding}}</h2>
+   <input type="text" [(ngModel)]="twoWayBinding">
+  
+   <!-- event binding -->
+   <br>
+   <h5>event binding</h5>
+   <button class="btn btn-secondary mt-1" (click)="clickMe()">Click Me</button>
+  <!-- sending data to child component using @Input decorator in child -->
+  <!-- receiving data from child throw Event Binding -->
+   <app-user  [user]="userObject" (itemEmit)="addItemFromChild($event)"></app-user>
+   <h2>{{fromChild}}</h2>
+  
+   <!-- adding and removing CSS classes using class directive -->
+   <h2 [ngClass]="isInvalid? 'alert' : '' ">Attribute directive ngClass</h2>
+  
+  
+   <!-- ngStyle directive -->
+   <h2 [ngStyle]="currentStyles">ngStyle</h2>
+  
+   <!-- structural directive -->
+   <div *ngIf="canSave; then ifBlock else elseBlock">if and else here</div>
+  <!-- must use ng-template to choose between if and else block -->
+   <ng-template #ifBlock>If Block</ng-template> 
+  <ng-template #elseBlock>Else Block</ng-template>
+  
+  <br>
+  <button class="btn btn-secondary" (click)="toggle()">Click To Toggle</button>
+  
+</div>

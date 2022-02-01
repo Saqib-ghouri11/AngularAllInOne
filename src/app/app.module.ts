@@ -9,6 +9,9 @@ import { OneComponent } from './components/one/one.component';
 import { TwoComponent } from './components/two/two.component';
 import { ThreeComponent } from './components/three/three.component';
 import { FourComponent } from './components/four/four.component';
+import { WildCardComponent } from './components/wild-card/wild-card.component';
+import { HomeComponent } from './components/home/home.component';
+import { TDFComponent } from './components/tdf/tdf.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { FourComponent } from './components/four/four.component';
     OneComponent,
     TwoComponent,
     ThreeComponent,
-    FourComponent
+    FourComponent,
+    WildCardComponent,
+    HomeComponent,
+    TDFComponent
   ],
   imports: [
     BrowserModule,
