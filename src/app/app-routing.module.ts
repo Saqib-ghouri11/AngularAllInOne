@@ -10,8 +10,10 @@ const routes: Routes = [
   {canActivate:[AccessGuard], path:'one',component:OneComponent},
   {path:'two',component:TwoComponent},
   {path:'three',component:ThreeComponent},
-  {path:'four',component:FourComponent}
-];
+  {path:'four',component:FourComponent},
+  //customer module path for lazy loading
+  { path: 'customer', loadChildren: () => import('./modules/customer/customer.module').then(m => m.CustomerModule) },
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
