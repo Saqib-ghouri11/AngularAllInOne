@@ -22,18 +22,19 @@
 
  <!-- adding and removing CSS classes using class directive -->
  <h2 [ngClass]="isInvalid? 'alert' : '' ">Attribute directive ngClass</h2>
- <br>
- <button class="btn btn-secondary" (click)="toggle()">Click To Toggle</button>
+
 
  <!-- ngStyle directive -->
  <h2 [ngStyle]="currentStyles">ngStyle</h2>
 
  <!-- structural directive -->
- <div *ngIf="canSave?  'ifBlock':'elseBlock'">if and else here</div>
+ <div *ngIf="canSave; then ifBlock else elseBlock">if and else here</div>
+<!-- must use ng-template to choose between if and else block -->
+ <ng-template #ifBlock>If Block</ng-template> 
+<ng-template #elseBlock>Else Block</ng-template>
 
- <h2 #ifBlock>if block</h2>
- <h2 #elseBlock>else block</h2>
-
+<br>
+<button class="btn btn-secondary" (click)="toggle()">Click To Toggle</button>
 
  <div class="form-group">
    <form >
