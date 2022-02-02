@@ -11,7 +11,7 @@ import { ThreeComponent } from './components/three/three.component';
 import { FourComponent } from './components/four/four.component';
 import { WildCardComponent } from './components/wild-card/wild-card.component';
 import { HomeComponent } from './components/home/home.component';
-import { TDFComponent } from './components/tdf/tdf.component';
+import { TdfModule } from './modules/tdf/tdf.module';
 
 @NgModule({
   declarations: [
@@ -23,12 +23,13 @@ import { TDFComponent } from './components/tdf/tdf.component';
     FourComponent,
     WildCardComponent,
     HomeComponent,
-    TDFComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    TdfModule
   ],
   providers: [],
   bootstrap: [AppComponent]
