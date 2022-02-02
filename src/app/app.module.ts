@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,7 @@ import { FourComponent } from './components/four/four.component';
 import { WildCardComponent } from './components/wild-card/wild-card.component';
 import { HomeComponent } from './components/home/home.component';
 import { TdfModule } from './modules/tdf/tdf.module';
+import { MdfModule } from './modules/mdf/mdf.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { TdfModule } from './modules/tdf/tdf.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    TdfModule
+    TdfModule,
+    MdfModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,6 +17,7 @@ const routes: Routes = [
    //customer module path for lazy loading
    { path: 'customer', loadChildren: () => import('./modules/customer/customer.module').then(m => m.CustomerModule) },
   { path: 'tdf', loadChildren: () => import('./modules/tdf/tdf.module').then(m => m.TdfModule) },
+  { path: 'mdf', loadChildren: () => import('./modules/mdf/mdf.module').then(m => m.MdfModule) },
  
    //wild card compponent
    {path:'**',component:WildCardComponent},
