@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <h1>Template Driven Form</h1>
+    <form #formValues="ngForm">
+        <div class="form-group">
+            <label class="form-group-label">Username</label>
+            <input #name="ngModel" [(ngModel)]="userData.username" type="text" name="username" class="form-control" required
+            [class.is-invalid]="name.invalid && name.touched"
+            >
+            <small class="text-danger" [class.d-none]="name.untouched || name.valid">Username required</small>
+           
+        </div>
+
+        <div class="form-group">
+            <label class="form-group-label">Password</label>
+            <input #name="ngModel" [(ngModel)]="userData.password" type="password" name="password" class="form-control"
+            [class.is-invalid]="name.touched && name.invalid"
+            >   
+            <small class="text-danger" [class.d-none]="name.untouched || name.valid"></small>
+        </div>
+
+        <div class="form-group">
+            <label class="form-group-label">Confirm Password</label>
+            <input #name="ngModel" [(ngModel)]="userData.confirmPassword" type="password" name="confirmPassword" class="form-control"
+            [class.is-invalid]="name.touched && name.invalid"
+            >   
+            <small class="text-danger" [class.d-none]="name.untouched || name.valid"></small>
+        </div>
+
+        <div class="form-group">
+            <label  class="form-group-label">Interest</label>
+            <select #topic="ngModel" class="custom-select" name="interested" [(ngModel)]="userData.interested" 
+            (blur)="inSelectValid(topic.value)" (change)="inSelectValid(topic.value)"
+
+            [class.is-invalid]="isSelectValidity && topic.touched"
+
+            >
+                <option selected value="default" >I am interested in...</option>
+                <option *ngFor="let item of interests">{{item}}</option>
+            </select>
+            <small class="text-danger" [class.d-none]="!isSelectValidity || topic.untouched">Please select an interest</small>
+        </div>
+
+        <div class="m-3">
+            <label>Time Preferences</label>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="timePreferences" value="morning" [(ngModel)]="userData.timePreference">
+              <label  class="form-check-label">Morning from 7AM to 1PM</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="timePreferences" value="evening" [(ngModel)]="userData.timePreference">
+              <label  class="form-check-label">Evening from 5PM to 9PM</label>
+            </div>
+          </div>
+      
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" name="subscribe" [(ngModel)]="userData.subscribe">
+            <label  class="form-check-label">send me promotions</label>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Register</button>
+
+    </form>
+</div>

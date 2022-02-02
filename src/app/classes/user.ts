@@ -1,9 +1,10 @@
 export class User {
     constructor(
-        username:string,
-        password:string,
-        confirmPassword:string,
-        interested:string,
-        subscribe:boolean
+       public username:string,
+        public password:string,
+       public confirmPassword:string,
+       public interested:string,
+       public timePreference:string,
+       public  subscribe:boolean
     ){}
 }

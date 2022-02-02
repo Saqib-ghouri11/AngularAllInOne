@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TDFComponent } from './tdf.component';
+import { TdfComponent } from './tdf.component';
 
-describe('TDFComponent', () => {
-  let component: TDFComponent;
-  let fixture: ComponentFixture<TDFComponent>;
+describe('TdfComponent', () => {
+  let component: TdfComponent;
+  let fixture: ComponentFixture<TdfComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TDFComponent ]
+      declarations: [ TdfComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TDFComponent);
+    fixture = TestBed.createComponent(TdfComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
