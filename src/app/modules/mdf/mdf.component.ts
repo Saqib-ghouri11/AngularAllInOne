@@ -14,15 +14,8 @@ export class MdfComponent implements OnInit {
   constructor(private httpService:HttpService, private fb:FormBuilder) { 
     
   }
-  reactiveFormModule=this.fb.group({
-    username:['',[Validators.required,UserValidation(/admin/)]],
-    password:['',[Validators.required,Validators.minLength(8)]],
-    confirmPassword:['',[Validators.required,Validators.minLength(8)]],
-    interested:['default'],
-    timePreferences:['morning'],
-    subscribe:[true],
-    
-  },{validator:PasswordMismatchValidation});
+  reactiveFormModule!:FormGroup;
+  
 
   onSubmit(){
     this.httpService.sendDataToServer("http://localhost:8000/post-here",this.reactiveFormModule.value).subscribe(
@@ -78,6 +71,24 @@ export class MdfComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    this.reactiveFormModule=this.fb.group({
+      username:['',[Validators.required,UserValidation(/admin/)]],
+      password:['',[Validators.required,Validators.minLength(8)]],
+      confirmPassword:['',[Validators.required,Validators.minLength(8)]],
+      interested:['default'],
+      timePreferences:['morning'],
+      subscribe:[true],
+      
+    },{validator:PasswordMismatchValidation});
+    const email=this.reactiveFormModule.get('email');
+    this.reactiveFormModule.get('subscribe')?.valueChanges.subscribe(subscription=>{
+      if(subscription){
+        email?.setValidators(Validators.required);
+      }else if(!subscription){
+        email?.clearValidators;
+      }
+      email?.updateValueAndValidity;
+    });
     this.loadData();
   }
 
