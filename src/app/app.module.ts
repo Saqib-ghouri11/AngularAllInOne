@@ -13,6 +13,9 @@ import { WildCardComponent } from './components/wild-card/wild-card.component';
 import { HomeComponent } from './components/home/home.component';
 import { TdfModule } from './modules/tdf/tdf.module';
 import { MdfModule } from './modules/mdf/mdf.module';
+import { HttpService } from './services/http.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { MdfModule } from './modules/mdf/mdf.module';
     FourComponent,
     WildCardComponent,
     HomeComponent,
+   
     
   ],
   imports: [
@@ -33,8 +37,9 @@ import { MdfModule } from './modules/mdf/mdf.module';
     TdfModule,
     MdfModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
