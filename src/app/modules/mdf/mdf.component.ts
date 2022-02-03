@@ -47,6 +47,9 @@ export class MdfComponent implements OnInit {
   get getSubscribe(){
     return this.reactiveFormModule.get('subscribe');
   }
+  get getEmail(){
+    return this.reactiveFormModule.get('email');
+  }
 
   
   interests=['angular','react','vue']
@@ -75,19 +78,21 @@ export class MdfComponent implements OnInit {
       username:['',[Validators.required,UserValidation(/admin/)]],
       password:['',[Validators.required,Validators.minLength(8)]],
       confirmPassword:['',[Validators.required,Validators.minLength(8)]],
+      email:[''],
       interested:['default'],
       timePreferences:['morning'],
-      subscribe:[true],
+      subscribe:[false],
       
     },{validator:PasswordMismatchValidation});
-    const email=this.reactiveFormModule.get('email');
+   
     this.reactiveFormModule.get('subscribe')?.valueChanges.subscribe(subscription=>{
+      const email=this.reactiveFormModule.get('email');
       if(subscription){
         email?.setValidators(Validators.required);
       }else if(!subscription){
-        email?.clearValidators;
+        email?.clearValidators();
       }
-      email?.updateValueAndValidity;
+      email?.updateValueAndValidity();
     });
     this.loadData();
   }
